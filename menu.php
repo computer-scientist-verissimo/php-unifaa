@@ -1,8 +1,9 @@
 <?php
-include 'db.php';
-
-$query = $pdo->query("SELECT * FROM pizzas");
-$pizzas = $query->fetchAll();
+$pizzas = [
+    ['id' => 1, 'nome' => 'Margherita', 'descricao' => 'Molho de tomate, queijo e manjericão', 'preco' => 29.90],
+    ['id' => 2, 'nome' => 'Pepperoni', 'descricao' => 'Molho de tomate, queijo e pepperoni', 'preco' => 34.90],
+    ['id' => 3, 'nome' => 'Vegetariana', 'descricao' => 'Legumes frescos e queijo', 'preco' => 32.90]
+];
 ?>
 
 <!DOCTYPE html>

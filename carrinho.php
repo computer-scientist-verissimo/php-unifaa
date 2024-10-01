@@ -1,3 +1,4 @@
+<?php
 session_start();
 
 if (!isset($_SESSION['carrinho'])) {
@@ -9,6 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['carrinho'][] = $pizza_id; // Adiciona pizza ao carrinho
 }
 
+$pizzas = [
+    1 => ['nome' => 'Margherita', 'preco' => 29.90],
+    2 => ['nome' => 'Pepperoni', 'preco' => 34.90],
+    3 => ['nome' => 'Vegetariana', 'preco' => 32.90]
+];
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <ul>
             <?php foreach ($_SESSION['carrinho'] as $pizza_id): ?>
                 <li>
-                    <p>Pizza ID: <?php echo $pizza_id; ?></p>
+                    <p><?php echo $pizzas[$pizza_id]['nome']; ?> - R$ <?php echo number_format($pizzas[$pizza_id]['preco'], 2, ',', '.'); ?></p>
                 </li>
             <?php endforeach; ?>
         </ul>
